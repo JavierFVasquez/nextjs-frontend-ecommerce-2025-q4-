@@ -155,6 +155,71 @@ All requests include `x-api-key` header for authentication.
 
 The project is configured with `output: 'standalone'` for optimized deployment.
 
+### Docker
+
+#### Build and run with Docker
+
+```bash
+# Build the image
+docker build -t ecommerce-frontend .
+
+# Run the container
+docker run -p 3000:3000 ecommerce-frontend
+
+# Run with environment variables
+docker run -p 3000:3000 \
+  -e NEXT_PUBLIC_PRODUCTS_API_BASE=https://your-api.com/products \
+  -e NEXT_PUBLIC_INVENTORY_API_BASE=https://your-api.com/inventory \
+  -e NEXT_PUBLIC_API_KEY=your-api-key \
+  ecommerce-frontend
+```
+
+#### Using Docker Compose
+
+```bash
+# Start the application
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop the application
+docker-compose down
+```
+
+**Note**: Edit the `docker-compose.yml` file to add your environment variables before running.
+
+#### Using Makefile (Optional)
+
+```bash
+# Build image
+make build
+
+# Start container
+make run
+
+# View logs
+make logs
+
+# Access shell
+make shell
+
+# Use docker-compose
+make up
+make down
+
+# Clean up everything
+make clean
+```
+
+#### Docker Image Details
+
+- Multi-stage build for optimal image size
+- Uses Node.js 20 Alpine for minimal footprint
+- Runs as non-root user for security
+- Includes health checks
+- Based on Next.js standalone output
+
 ## License
 
 MIT
