@@ -1,0 +1,44 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "search": "Buscar",
+    "filter": "Filtrar"
+  },
+  "products": {
+    "title": "Productos",
+    "noProducts": "No se encontraron productos",
+    "viewDetails": "Ver detalles",
+    "addToCart": "Agregar al carrito",
+    "price": "Precio",
+    "category": "Categoría",
+    "description": "Descripción"
+  },
+  "inventory": {
+    "inStock": "En stock",
+    "outOfStock": "Agotado",
+    "lowStock": "Stock bajo",
+    "quantity": "Cantidad",
+    "available": "Disponible"
+  },
+  "purchase": {
+    "title": "Realizar compra",
+    "quantity": "Cantidad",
+    "submit": "Comprar",
+    "success": "Compra realizada exitosamente",
+    "error": "Error al realizar la compra",
+    "insufficientStock": "Stock insuficiente"
+  },
+  "errors": {
+    "generic": "Ha ocurrido un error",
+    "notFound": "No encontrado",
+    "serverError": "Error del servidor",
+    "networkError": "Error de conexión"
+  }
+}
+
