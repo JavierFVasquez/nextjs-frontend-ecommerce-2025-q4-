@@ -2,6 +2,10 @@
 
 Modern e-commerce frontend built with Next.js 15, TypeScript, and TanStack Query, consuming JSON:API microservices.
 
+## DEMO VIDEO 🎥
+[JAM VIDEO](https://jam.dev/c/7e9ffd74-1dc8-4f91-b4bc-9a2963715cf3) 
+[Jam Video.webm](https://github.com/user-attachments/assets/a67fae0b-8eff-429d-a896-8d3fc08f1d65)
+
 ## Tech Stack
 
 - **Framework**: Next.js 15 (App Router, Server Components, Node.js runtime)
