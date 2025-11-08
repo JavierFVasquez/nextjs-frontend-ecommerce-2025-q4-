@@ -36,6 +36,17 @@ COPY . .
 # Set environment variables for build
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# Declare build-time arguments for NEXT_PUBLIC_* variables
+# These need to be available during the build process
+ARG NEXT_PUBLIC_PRODUCTS_API_BASE
+ARG NEXT_PUBLIC_INVENTORY_API_BASE
+ARG NEXT_PUBLIC_API_KEY
+
+# Set them as environment variables for the build
+ENV NEXT_PUBLIC_PRODUCTS_API_BASE=$NEXT_PUBLIC_PRODUCTS_API_BASE
+ENV NEXT_PUBLIC_INVENTORY_API_BASE=$NEXT_PUBLIC_INVENTORY_API_BASE
+ENV NEXT_PUBLIC_API_KEY=$NEXT_PUBLIC_API_KEY
+
 # Build the application
 RUN yarn build
 

@@ -3,16 +3,32 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      # Pass build arguments for NEXT_PUBLIC_* variables
+      args:
+        - NEXT_PUBLIC_PRODUCTS_API_BASE=${NEXT_PUBLIC_PRODUCTS_API_BASE}
+        - NEXT_PUBLIC_INVENTORY_API_BASE=${NEXT_PUBLIC_INVENTORY_API_BASE}
+        - NEXT_PUBLIC_API_KEY=${NEXT_PUBLIC_API_KEY}
     container_name: ecommerce-frontend
     restart: unless-stopped
     ports:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-      # Add your environment variables here
-      # - NEXT_PUBLIC_API_URL=https://api.example.com
+      # IMPORTANTE: Usar HTTPS y trailing slash (/)
+      # Runtime environment variables (también disponibles en el contenedor)
+      - NEXT_PUBLIC_PRODUCTS_API_BASE=${NEXT_PUBLIC_PRODUCTS_API_BASE}
+      - NEXT_PUBLIC_INVENTORY_API_BASE=${NEXT_PUBLIC_INVENTORY_API_BASE}
+      - NEXT_PUBLIC_API_KEY=${NEXT_PUBLIC_API_KEY}
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/"]
+      test:
+        [
+          "CMD",
+          "wget",
+          "--quiet",
+          "--tries=1",
+          "--spider",
+          "http://localhost:3000/",
+        ]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -20,4 +36,3 @@ services:
     # Optional: Uncomment to persist logs
     # volumes:
     #   - ./logs:/app/logs
-

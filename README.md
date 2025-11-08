@@ -45,8 +45,9 @@ npm install
 Create a `.env.local` file in the root directory:
 
 ```env
-NEXT_PUBLIC_PRODUCTS_API_BASE=https://your-api.com/products
-NEXT_PUBLIC_INVENTORY_API_BASE=https://your-api.com/inventory
+# IMPORTANTE: URLs deben usar HTTPS y terminar con /
+NEXT_PUBLIC_PRODUCTS_API_BASE=https://your-api.com/products/
+NEXT_PUBLIC_INVENTORY_API_BASE=https://your-api.com/inventory/
 NEXT_PUBLIC_API_KEY=your-api-key
 ```
 
