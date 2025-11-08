@@ -27,7 +27,7 @@ export function useProducts(): UseInfiniteQueryResult<InfiniteData<ProductsRespo
   return useInfiniteQuery<
     ProductsResponse,
     Error,
-    InfiniteData<ProductsResponse>,
+    InfiniteData<ProductsResponse, number>,
     readonly string[],
     number
   >({

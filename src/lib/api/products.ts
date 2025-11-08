@@ -31,8 +31,8 @@ export async function getProducts(
 
   const products = Array.isArray(response.data)
     ? response.data.map((item) => ({
-        id: item.id || '',
         ...item.attributes,
+        id: item.id || '',
       }))
     : [];
 
@@ -48,8 +48,8 @@ export async function getProductById(id: string): Promise<Product> {
   const data = response.data as JsonApiResource<Product>;
 
   return {
-    id: data.id || id,
     ...data.attributes,
+    id: data.id || id,
   };
 }
 
@@ -71,7 +71,7 @@ export async function updateProduct(
   const responseData = response.data as JsonApiResource<Product>;
 
   return {
-    id: responseData.id || id,
     ...responseData.attributes,
+    id: responseData.id || id,
   };
 }

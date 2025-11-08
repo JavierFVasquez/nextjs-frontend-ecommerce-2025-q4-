@@ -13,9 +13,9 @@ export async function getInventory(productId: string): Promise<Inventory> {
   const data = response.data as JsonApiResource<Inventory>;
 
   return {
+    ...data.attributes,
     id: data.id || productId,
     productId,
-    ...data.attributes,
   };
 }
 
@@ -36,8 +36,8 @@ export async function updateInventory(
   const data = response.data as JsonApiResource<Inventory>;
 
   return {
+    ...data.attributes,
     id: data.id || productId,
     productId,
-    ...data.attributes,
   };
 }

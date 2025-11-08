@@ -79,7 +79,9 @@ export default function ProductDetailPage({
             images={
               product.images && product.images.length > 1
                 ? product.images
-                : [product.images?.[0]]
+                : product.images?.[0]
+                  ? [product.images[0]]
+                  : []
             }
             alt={product.name}
           />
