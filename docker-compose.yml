@@ -1,5 +1,7 @@
 services:
   nextjs-app:
+    env_file:
+      - .env # Lee variables del archivo .env
     build:
       context: .
       dockerfile: Dockerfile
