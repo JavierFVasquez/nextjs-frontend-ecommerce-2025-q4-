@@ -46,8 +46,9 @@ Create a `.env.local` file in the root directory:
 
 ```env
 # IMPORTANTE: URLs deben usar HTTPS y terminar con /
-NEXT_PUBLIC_PRODUCTS_API_BASE=https://your-api.com/products/
-NEXT_PUBLIC_INVENTORY_API_BASE=https://your-api.com/inventory/
+# API v1 endpoints (versioned)
+NEXT_PUBLIC_PRODUCTS_API_BASE=https://your-api.com/api/v1/products/
+NEXT_PUBLIC_INVENTORY_API_BASE=https://your-api.com/api/v1/inventory/
 NEXT_PUBLIC_API_KEY=your-api-key
 ```
 
@@ -141,6 +142,26 @@ src/
 
 ## API Integration
 
+This frontend consumes JSON:API compliant microservices (v1) with the following structure:
+
+### API Versioning
+
+All API endpoints use version prefix `/api/v1`:
+
+**Products API:**
+- `POST /api/v1/products` - Create product
+- `GET /api/v1/products` - List products
+- `GET /api/v1/products/{id}` - Get product
+- `PATCH /api/v1/products/{id}` - Update product
+- `DELETE /api/v1/products/{id}` - Delete product
+
+**Inventory API:**
+- `POST /api/v1/inventory` - Create inventory
+- `GET /api/v1/inventory/{id}` - Get inventory
+- `PATCH /api/v1/inventory/{id}` - Update inventory
+
+### JSON:API Response Format
+
 This frontend consumes JSON:API compliant microservices with the following structure:
 
 ```json
@@ -188,10 +209,10 @@ docker build -t ecommerce-frontend .
 # Run the container
 docker run -p 3000:3000 ecommerce-frontend
 
-# Run with environment variables
+# Run with environment variables (v1 API)
 docker run -p 3000:3000 \
-  -e NEXT_PUBLIC_PRODUCTS_API_BASE=https://your-api.com/products \
-  -e NEXT_PUBLIC_INVENTORY_API_BASE=https://your-api.com/inventory \
+  -e NEXT_PUBLIC_PRODUCTS_API_BASE=https://your-api.com/api/v1/products \
+  -e NEXT_PUBLIC_INVENTORY_API_BASE=https://your-api.com/api/v1/inventory \
   -e NEXT_PUBLIC_API_KEY=your-api-key \
   ecommerce-frontend
 ```

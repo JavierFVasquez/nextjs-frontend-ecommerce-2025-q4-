@@ -3,10 +3,10 @@ import type { Product, PaginationParams, JsonApiResource } from '../schemas';
 
 /**
  * Get the Products API base URL from environment variable
- * Falls back to localhost for development
+ * Falls back to localhost for development with v1 API versioning
  */
 const PRODUCTS_API_BASE =
-  process.env.NEXT_PUBLIC_PRODUCTS_API_BASE ?? 'http://localhost:8080/products';
+  process.env.NEXT_PUBLIC_PRODUCTS_API_BASE ?? 'http://localhost:8080/api/v1/products';
 
 interface GetProductsResponse {
   products: Product[];
