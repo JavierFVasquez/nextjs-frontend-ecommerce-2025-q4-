@@ -59,12 +59,10 @@ export async function jsonApiFetch<T>(
     headers.set('x-api-key', apiKey);
   }
 
-  // Perform fetch with no-cors mode
-  // WARNING: This prevents reading the response data
+  // Perform fetch
   const response = await fetch(fullUrl, {
     ...fetchOptions,
     headers,
-    mode: 'no-cors',
   });
 
   // Handle non-OK responses

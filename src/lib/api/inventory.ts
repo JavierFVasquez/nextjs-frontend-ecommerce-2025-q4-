@@ -1,9 +1,12 @@
 import { jsonApiFetch } from './client';
 import type { Inventory, JsonApiResource } from '../schemas';
 
+/**
+ * Get the Inventory API base URL from environment variable
+ * Falls back to localhost for development
+ */
 const INVENTORY_API_BASE =
-  process.env.NEXT_PUBLIC_INVENTORY_API_BASE ??
-  'http://localhost:8080/inventory';
+  process.env.NEXT_PUBLIC_INVENTORY_API_BASE ?? 'http://localhost:8080/inventory';
 
 export async function getInventory(productId: string): Promise<Inventory> {
   const response = await jsonApiFetch<Inventory>(

@@ -89,6 +89,27 @@ npm run lint
 npm run format
 ```
 
+## State Management Architecture
+
+El proyecto implementa un **manejo de estado óptimo** basado en:
+
+- **TanStack Query v5**: Estado del servidor (cache, sincronización, refetch)
+- **Custom Hooks**: Encapsulación de lógica por dominio (SRP)
+- **Query Keys jerárquicos**: Estructura centralizada para invalidación de cache
+- **Configuración global**: staleTime (5min), retry inteligente, optimistic updates
+- **Separación de concerns**: Estado servidor vs. estado cliente (local)
+
+**Patrones aplicados**: Observer (suscripción reactiva), Strategy (retry logic), Single Responsibility (hooks dedicados).
+
+### ¿Por qué no Zustand/Redux?
+
+Para la v1, **TanStack Query es suficiente** porque el 95% del estado es servidor (productos, inventario, compras). El estado cliente es mínimo (tema, scroll position) y se maneja con hooks locales/Context API.
+
+**Consideraciones para v2**:
+- **Zustand** sería apropiado si agregamos: carrito persistente multi-tab, filtros complejos cross-page, preferencias de usuario avanzadas
+- **Redux Toolkit** sería necesario si escalamos a: checkout multi-step, gestión de sesiones complejas, eventos de analytics coordinados
+- **Trade-off actual**: Evitar over-engineering; agregar complejidad solo cuando el dominio lo justifique (YAGNI principle)
+
 ## Project Structure
 
 ```
